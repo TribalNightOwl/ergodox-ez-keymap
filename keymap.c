@@ -55,9 +55,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         // right hand
              _______,                    KC_6,KC_7,         KC_8,            KC_9,            KC_0,                     KC_PSCR,
 			 _______,                    KC_Y,KC_U,         KC_I,            KC_O,            KC_P,                     _______,
-                                         KC_H,RSFT_T(KC_J), RCTL_T(KC_K),    RALT_T(KC_L),    TD(CT_MINUS_UNDSCR_EQUAL),GUI_T(KC_QUOT),
+                                         KC_H,RSFT_T(KC_J), RCTL_T(KC_K),    LALT_T(KC_L),    TD(CT_MINUS_UNDSCR_EQUAL),GUI_T(KC_QUOT),
              TD(CT_RPRN_RBRC_RCBR_GTHAN),KC_N,KC_M,         TD(CT_COMM_SCLN),TD(CT_DOT_CLN),  TD(CT_SLSH_PIPE_BSLSH),   _______,
-                                                            OSM(MOD_RSFT),   OSM(MOD_RCTL),   OSM(MOD_RALT),   _______, _______,
+                                                            OSM(MOD_RSFT),   OSM(MOD_RCTL),   OSM(MOD_LALT),   _______, _______,
 			 _______,KC_ESC,
              _______,
 			 _______,KC_ENT, KC_SPC
@@ -97,7 +97,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
        // right hand
 	   _______,_______,      _______,       _______,        _______,_______, KC_F12,
 	   _______, KC_F6 ,        KC_F7,         KC_F8,          KC_F9, KC_F10, KC_F11,
-                KC_6  , RSFT_T(KC_7),  RCTL_T(KC_8),   RALT_T(KC_9),   KC_0, TD(CT_MINUS_UNDSCR_EQUAL),
+                KC_6  , RSFT_T(KC_7),  RCTL_T(KC_8),   LALT_T(KC_9),   KC_0, TD(CT_MINUS_UNDSCR_EQUAL),
        _______,_______,_______,_______,_______,_______,_______,
                        _______,_______,_______,_______,_______,
        _______, _______,
