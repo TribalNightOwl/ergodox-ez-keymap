@@ -241,7 +241,7 @@ uint32_t layer_state_set_user(uint32_t state) {
 
   uint8_t layer = biton32(state);
   switch (layer) {
-      case 0:
+      case BASE:
         #ifdef RGBLIGHT_COLOR_LAYER_0
     	  rgblight_mode(0);
           rgblight_setrgb(RGBLIGHT_COLOR_LAYER_0);
@@ -249,13 +249,13 @@ uint32_t layer_state_set_user(uint32_t state) {
           rgblight_init();
         #endif
         break;
-      case 1:
+      case NUMB:
         //ergodox_right_led_1_on();
         #ifdef RGBLIGHT_COLOR_LAYER_1
           rgblight_setrgb(RGBLIGHT_COLOR_LAYER_1);
         #endif
         break;
-      case 2:
+      case MOVE:
         //ergodox_right_led_2_on();
         #ifdef RGBLIGHT_COLOR_LAYER_2
     	  rgblight_set_yellow
