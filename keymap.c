@@ -210,6 +210,7 @@ void matrix_init_user(void) {
 // Runs constantly in the background, in a loop.
 void matrix_scan_user(void) {
 	  uint8_t modifiers = get_mods();
+	  uint8_t one_shot = get_oneshot_mods();
 
 	  ergodox_board_led_off();
 	  ergodox_right_led_1_off();
@@ -219,13 +220,13 @@ void matrix_scan_user(void) {
 		// Since we're not using the LEDs here for layer indication anymore,
 		// then lets use them for modifier indicators.  Shame we don't have 4...
 		// Also, no "else", since we want to know each, independantly.
-	  if (modifiers & MODS_SHIFT_MASK) {
+	  if ((modifiers | one_shot) & MODS_SHIFT_MASK) {
 		  ergodox_right_led_1_on();
 		}
-		if (modifiers & MODS_CTRL_MASK) {
+		if ((modifiers | one_shot) & MODS_CTRL_MASK) {
 		  ergodox_right_led_2_on();
 		}
-		if (modifiers & MODS_ALT_MASK) {
+		if ((modifiers | one_shot) & MODS_ALT_MASK) {
 		  ergodox_right_led_3_on();
 	  }
 };
