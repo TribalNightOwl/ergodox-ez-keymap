@@ -6,7 +6,7 @@
 
 
 #define BASE 0 // default layer
-#define SYMB 1 // symbols
+#define NUMB 1 // numbers to home row
 #define MOVE 2 // move keys
 
 #define _______ KC_TRNS
@@ -48,7 +48,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 		KC_INS,        KC_Q,    KC_W,        KC_E,        KC_R,         KC_T,   TD(CT_SQTE_DQTE_BQTE_CARET),
         KC_DELT,       KC_A,    ALT_T(KC_S), CTL_T(KC_D), LSFT_T(KC_F), KC_G,
 		TD(CT_COPY_PASTE_CUT_EMACS), KC_Z,    KC_X,        KC_C, KC_V,  KC_B,         TD(CT_LPRN_LBRC_LCBR_LTHAN),
-		_______,    _______,  KC_ESC,    TT(MOVE),    TT(SYMB),
+		_______,    _______,  KC_ESC,    TT(MOVE),    TT(NUMB),
 	                                                KC_ESC,   KC_LGUI,
                                                               _______,
                                                KC_BSPC,KC_TAB,_______,
@@ -62,7 +62,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
              _______,
 			 _______,KC_ENT, KC_SPC
     ),
-/* Keymap 1: Symbol Layer
+/* Keymap 1: Numbers Layer
  *
  * ,---------------------------------------------------.           ,--------------------------------------------------.
  * |         |  F1  |  F2  |  F3  |  F4  |  F5  |  L0  |           |  L0  |  F6  |  F7  |  F8  |  F9  |  F10 |   F11  |
@@ -83,8 +83,8 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  *                                 |      |      |      |       |      |      |      |
  *                                 `--------------------'       `--------------------'
  */
-// SYMBOLS
-[SYMB] = LAYOUT_ergodox(
+// Numbers
+[NUMB] = LAYOUT_ergodox(
        // left hand
 		KC_ESC ,_______,       _______,       _______,_______,_______,  TO(BASE),
 		_______,  KC_F1,         KC_F2,         KC_F3,  KC_F4,  KC_F5,_______,
