@@ -211,6 +211,7 @@ void matrix_init_user(void) {
 void matrix_scan_user(void) {
 	  uint8_t modifiers = get_mods();
 	  uint8_t one_shot = get_oneshot_mods();
+	  uint8_t led_usb_state = host_keyboard_leds();
 
 	  ergodox_board_led_off();
 	  ergodox_right_led_1_off();
@@ -220,7 +221,7 @@ void matrix_scan_user(void) {
 		// Since we're not using the LEDs here for layer indication anymore,
 		// then lets use them for modifier indicators.  Shame we don't have 4...
 		// Also, no "else", since we want to know each, independantly.
-	  if ((modifiers | one_shot) & MODS_SHIFT_MASK) {
+      if ((modifiers | one_shot) & MODS_SHIFT_MASK || led_usb_state & (1 << USB_LED_CAPS_LOCK)) {
 		  ergodox_right_led_1_on();
 		}
 		if ((modifiers | one_shot) & MODS_CTRL_MASK) {
