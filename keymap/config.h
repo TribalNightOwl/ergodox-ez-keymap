@@ -4,6 +4,9 @@
 #define MODS_ALT_MASK  (MOD_BIT(KC_LALT)|MOD_BIT(KC_RALT))
 #define MODS_GUI_MASK  (MOD_BIT(KC_LGUI)|MOD_BIT(KC_RGUI))
 
+#undef RGBLIGHT_ANIMATIONS
+#define RGBLIGHT_EFFECT_KNIGHT
+
 #ifdef RGBLIGHT_ENABLE
 #define rgblight_set_blue        rgblight_sethsv (0xFF,  0xFF, 0xFF);
 #define rgblight_set_red         rgblight_sethsv (0x00,  0xFF, 0xFF);
