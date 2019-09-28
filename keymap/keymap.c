@@ -244,10 +244,12 @@ uint32_t layer_state_set_user(uint32_t state) {
   uint8_t layer = biton32(state);
   switch (layer) {
       case NUMB:
-        reset_light_state(1, 170, 255, 255);
+        // reset_light_state(1, 170, 255, 255);
+        reset_light_state(1, HSV_BLUE);
         break;
       case MOVE:
-        reset_light_state(23, 43, 255, 255);
+        // reset_light_state(23, 43, 255, 255);
+        reset_light_state(23, HSV_YELLOW);
         break;
       default:
         reset_light_state(0, 0, 0, 0);
@@ -264,9 +266,11 @@ void oneshot_mods_changed_user(uint8_t mods) {
   }
   if (mods & MOD_MASK_CTRL) {
     println("Oneshot mods CTRL");
+    rgblight_sethsv_noeeprom(HSV_GREEN);
   }
   if (mods & MOD_MASK_ALT) {
     println("Oneshot mods ALT");
+    rgblight_sethsv_noeeprom(HSV_AZURE);
   }
   if (mods & MOD_MASK_GUI) {
     println("Oneshot mods GUI");
@@ -285,9 +289,11 @@ void oneshot_locked_mods_changed_user(uint8_t mods) {
   }
   if (mods & MOD_MASK_CTRL) {
     println("Oneshot locked mods CTRL");
+    rgblight_sethsv_noeeprom(HSV_GREEN);
   }
   if (mods & MOD_MASK_ALT) {
     println("Oneshot locked mods ALT");
+    rgblight_sethsv_noeeprom(HSV_AZURE);
   }
   if (mods & MOD_MASK_GUI) {
     println("Oneshot locked mods GUI");
