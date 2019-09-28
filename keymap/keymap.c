@@ -15,7 +15,6 @@ enum custom_keycodes {
   PLACEHOLDER = SAFE_RANGE, // can always be here
   EPRM,
   VRSN,
-  RGB_SLD
 };
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
@@ -188,23 +187,14 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
       }
       return false;
       break;
-    case RGB_SLD:
-      if (record->event.pressed) {
-        #ifdef RGBLIGHT_ENABLE
-          rgblight_mode(1);
-        #endif
-      }
-      return false;
-      break;
   }
   return true;
 }
 
 // Runs just one time when the keyboard initializes.
 void matrix_init_user(void) {
-#ifdef RGBLIGHT_COLOR_LAYER_0
-  rgblight_setrgb(RGBLIGHT_COLOR_LAYER_0);
-#endif
+  rgblight_mode_noeeprom(0);
+  rgblight_sethsv_noeeprom(0,0,0);
 };
 
 // Runs constantly in the background, in a loop.
@@ -233,41 +223,77 @@ void matrix_scan_user(void) {
 
 };
 
+// used to remember the light color an mode
+uint8_t mymode = 0;
+uint8_t myhue = 0;
+uint8_t mysat = 0;
+uint8_t myval = 0;
+
+void reset_light_state(uint8_t mode, uint8_t hue, uint8_t sat, uint8_t val) {
+  // Update global values so we can return to them
+  mymode = mode;
+  myhue = hue;
+  mysat = sat;
+  myval = val;
+  rgblight_sethsv_noeeprom(hue, sat, val);
+  rgblight_mode_noeeprom(mode);
+};
+
 // Runs whenever there is a layer state change.
 uint32_t layer_state_set_user(uint32_t state) {
-  //ergodox_board_led_off();
-  //ergodox_right_led_1_off();
-  //ergodox_right_led_2_off();
-  //ergodox_right_led_3_off();
-
   uint8_t layer = biton32(state);
   switch (layer) {
-      case BASE:
-        #ifdef RGBLIGHT_COLOR_LAYER_0
-    	  rgblight_mode(0);
-          rgblight_setrgb(RGBLIGHT_COLOR_LAYER_0);
-        #else
-          rgblight_init();
-        #endif
-        break;
       case NUMB:
-        //ergodox_right_led_1_on();
-        #ifdef RGBLIGHT_COLOR_LAYER_1
-          rgblight_setrgb(RGBLIGHT_COLOR_LAYER_1);
-        #endif
+        reset_light_state(1, 170, 255, 255);
         break;
       case MOVE:
-        //ergodox_right_led_2_on();
-        #ifdef RGBLIGHT_COLOR_LAYER_2
-    	  rgblight_set_yellow
-    	  rgblight_mode(23);
-          //rgblight_setrgb(RGBLIGHT_COLOR_LAYER_2);
-        #endif
+        reset_light_state(23, 43, 255, 255);
         break;
       default:
+        reset_light_state(0, 0, 0, 0);
         break;
     }
-
   return state;
 };
 
+// called whenever any one shot modifier key is toggled on or off
+void oneshot_mods_changed_user(uint8_t mods) {
+  if (mods & MOD_MASK_SHIFT) {
+    println("Oneshot mods SHIFT");
+    rgblight_sethsv_noeeprom(HSV_RED);
+  }
+  if (mods & MOD_MASK_CTRL) {
+    println("Oneshot mods CTRL");
+  }
+  if (mods & MOD_MASK_ALT) {
+    println("Oneshot mods ALT");
+  }
+  if (mods & MOD_MASK_GUI) {
+    println("Oneshot mods GUI");
+  }
+  if (!mods) {
+    println("Oneshot mods off");
+    rgblight_sethsv_noeeprom(myhue, mysat, myval);
+  }
+};
+
+// called whenever any one shot modifier key is locked and unlocked
+void oneshot_locked_mods_changed_user(uint8_t mods) {
+  if (mods & MOD_MASK_SHIFT) {
+    println("Oneshot locked mods SHIFT");
+    rgblight_sethsv_noeeprom(HSV_RED);
+  }
+  if (mods & MOD_MASK_CTRL) {
+    println("Oneshot locked mods CTRL");
+  }
+  if (mods & MOD_MASK_ALT) {
+    println("Oneshot locked mods ALT");
+  }
+  if (mods & MOD_MASK_GUI) {
+    println("Oneshot locked mods GUI");
+  }
+  if (!mods) {
+    println("Oneshot locked mods off");
+    rgblight_sethsv_noeeprom(myhue, mysat, myval);
+  }
+};
