@@ -192,11 +192,11 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
 }
 
 // Runs just one time when the keyboard initializes.
-void matrix_init_user(void) {
+void keyboard_post_init_user(void) {
+  rgblight_enable_noeeprom();
+  rgblight_sethsv_noeeprom(0, 0, 0);
   rgblight_mode_noeeprom(0);
-  rgblight_sethsv_noeeprom(0,0,0);
-};
-
+}
 // Runs constantly in the background, in a loop.
 void matrix_scan_user(void) {
 	  uint8_t modifiers = get_mods();
