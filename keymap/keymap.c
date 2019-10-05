@@ -211,16 +211,15 @@ void matrix_scan_user(void) {
 	  // Since we're not using the LEDs here for layer indication anymore,
 	  // then lets use them for modifier indicators.  Shame we don't have 4...
 	  // Also, no "else", since we want to know each, independantly.
-      if ((modifiers | one_shot) & MODS_SHIFT_MASK || led_usb_state & (1 << USB_LED_CAPS_LOCK)) {
+    if ((modifiers | one_shot) & MODS_SHIFT_MASK || led_usb_state & (1 << USB_LED_CAPS_LOCK)) {
 		  ergodox_right_led_1_on();
-      }
-      if ((modifiers | one_shot) & MODS_CTRL_MASK) {
-		 ergodox_right_led_2_on();
-      }
-      if ((modifiers | one_shot) & MODS_ALT_MASK) {
-		 ergodox_right_led_3_on();
+    }
+    if ((modifiers | one_shot) & MODS_CTRL_MASK) {
+      ergodox_right_led_2_on();
+    }
+    if ((modifiers | one_shot) & MODS_ALT_MASK) {
+      ergodox_right_led_3_on();
 	  }
-
 };
 
 // used to remember the light color an mode
