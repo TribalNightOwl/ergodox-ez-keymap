@@ -1,3 +1,4 @@
+# Execute this script on the machine where src resides
 QMK_SRC_DIR=~/git/qmk_firmware
 MYKEYMAP_DIR=~/git/ergodox-ez-keymap/keymap/
 SCRIPTS_DIR=~/git/ergodox-ez-keymap/scripts
