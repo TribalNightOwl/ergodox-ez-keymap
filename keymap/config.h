@@ -29,10 +29,17 @@
 #define RGBLIGHT_COLOR_LAYER_7 0xFF, 0xFF, 0xFF
 #endif
 
+#undef  TAPPING_TERM
 #define TAPPING_TERM 200
 
+#undef  ONESHOT_TAP_TOGGLE
 #define ONESHOT_TAP_TOGGLE 2  /* Tapping this number of times holds the key until tapped this number of times again. */
+
+#undef  ONESHOT_TIMEOUT
 #define ONESHOT_TIMEOUT 5000  /* Time (in ms) before the one shot key is released */
+
+#undef  DEBOUNCE
+#define DEBOUNCE 15
 
 /* disable debug print */
 // #define NO_DEBUG
