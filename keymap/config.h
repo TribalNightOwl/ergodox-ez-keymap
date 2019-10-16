@@ -39,7 +39,8 @@
 #define ONESHOT_TIMEOUT 5000  /* Time (in ms) before the one shot key is released */
 
 #undef  DEBOUNCE
-#define DEBOUNCE 15
+#define DEBOUNCE 45
+
 
 /* disable debug print */
 // #define NO_DEBUG
