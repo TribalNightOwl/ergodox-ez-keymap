@@ -42,24 +42,25 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 // If it accepts an argument (i.e, is a function), it doesn't need KC_.
 // Otherwise, it needs KC_*
 [BASE] = LAYOUT_ergodox(  // layer 0 : default
-        // left hand
-        KC_ESC,        KC_1,    KC_2,        KC_3,        KC_4,         KC_5,   _______,
+    // left hand
+    KC_ESC,        KC_1,    KC_2,        KC_3,        KC_4,         KC_5,                       _______,
 		KC_INS,        KC_Q,    KC_W,        KC_E,        KC_R,         KC_T,   TD(CT_SQTE_DQTE_BQTE_CARET),
-        KC_DELT,       KC_A,    ALT_T(KC_S), CTL_T(KC_D), LSFT_T(KC_F), KC_G,
-		TD(CT_COPY_PASTE_CUT_EMACS), KC_Z,    KC_X,        KC_C, KC_V,  KC_B,         TD(CT_LPRN_LBRC_LCBR_LTHAN),
+    KC_DELT,       KC_A,    ALT_T(KC_S), CTL_T(KC_D), LSFT_T(KC_F), KC_G,
+		TD(CT_COPY_PASTE_CUT_EMACS), KC_Z,    KC_X,        KC_C, KC_V,  KC_B,   TD(CT_LPRN_LBRC_LCBR_LTHAN),
 		_______,    _______,  KC_ESC,    TT(MOVE),    TT(NUMB),
-	                                                KC_ESC,   KC_LGUI,
-                                                              _______,
-                                               KC_BSPC,KC_TAB,_______,
+	                                                                                                KC_ESC,   KC_LGUI,
+                                                                                                            _______,
+                                                                                             KC_BSPC,KC_TAB,_______,
+
         // right hand
-             _______,                    KC_6,KC_7,         KC_8,            KC_9,            KC_0,                     KC_PSCR,
-			 _______,                    KC_Y,KC_U,         KC_I,            KC_O,            KC_P,                     _______,
-                                         KC_H,RSFT_T(KC_J), RCTL_T(KC_K),    LALT_T(KC_L),    TD(CT_MINUS_UNDSCR_EQUAL),GUI_T(KC_QUOT),
-             TD(CT_RPRN_RBRC_RCBR_GTHAN),KC_N,KC_M,         TD(CT_COMM_SCLN),TD(CT_DOT_CLN),  TD(CT_SLSH_PIPE_BSLSH),   _______,
-                                                            OSM(MOD_RSFT),   OSM(MOD_RCTL),   OSM(MOD_LALT),   _______, _______,
-			 _______,KC_ESC,
-             _______,
-			 _______,KC_ENT, KC_SPC
+    _______,                      KC_6,           KC_7,              KC_8,            KC_9,                       KC_0,           KC_PSCR,
+		_______,                      KC_Y,           KC_U,              KC_I,            KC_O,                       KC_P,           _______,
+                                  KC_H,   RSFT_T(KC_J),      RCTL_T(KC_K),    LALT_T(KC_L),  TD(CT_MINUS_UNDSCR_EQUAL),    GUI_T(KC_QUOT),
+    TD(CT_RPRN_RBRC_RCBR_GTHAN),  KC_N,           KC_M,  TD(CT_COMM_SCLN),  TD(CT_DOT_CLN),     TD(CT_SLSH_PIPE_BSLSH),           _______,
+                                         OSM(MOD_RSFT),     OSM(MOD_RCTL),   OSM(MOD_LALT),                    _______,           _______,
+		_______,KC_ESC,
+    _______,
+		_______,KC_ENT, KC_SPC
     ),
 /* Keymap 1: Numbers Layer
  *
@@ -85,14 +86,15 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 // Numbers
 [NUMB] = LAYOUT_ergodox(
        // left hand
-		KC_ESC ,_______,       _______,       _______,_______,_______,  TO(BASE),
-		_______,  KC_F1,         KC_F2,         KC_F3,  KC_F4,  KC_F5,_______,
-		_______,   KC_1,  LALT_T(KC_2),  LCTL_T(KC_3),   LSFT_T(KC_4),   KC_5,
-		_______,_______,_______,_______,_______,_______,_______,
-		EPRM   ,_______,_______,_______,_______,
+		KC_ESC ,_______,       _______,       _______,        _______,  _______,  TO(BASE),
+		_______,  KC_F1,         KC_F2,         KC_F3,          KC_F4,    KC_F5,   _______,
+		_______,   KC_1,  LALT_T(KC_2),  LCTL_T(KC_3),   LSFT_T(KC_4),     KC_5,
+		_______,_______,       _______,       _______,        _______,  _______,   _______,
+		EPRM   ,_______,       _______,       _______,        _______,
                                        _______,_______,
                                                _______,
                                _______,_______,_______,
+
        // right hand
 	   _______,_______,      _______,       _______,        _______,_______, KC_F12,
 	   _______, KC_F6 ,        KC_F7,         KC_F8,          KC_F9, KC_F10, KC_F11,
