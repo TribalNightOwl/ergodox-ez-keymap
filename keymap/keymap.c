@@ -43,24 +43,24 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 // Otherwise, it needs KC_*
 [BASE] = LAYOUT_ergodox(  // layer 0 : default
     // left hand
-    KC_ESC,        KC_1,    KC_2,        KC_3,        KC_4,         KC_5,                       _______,
-		KC_INS,        KC_Q,    KC_W,        KC_E,        KC_R,         KC_T,   TD(CT_SQTE_DQTE_BQTE_CARET),
-    KC_DELT,       KC_A,    ALT_T(KC_S), CTL_T(KC_D), LSFT_T(KC_F), KC_G,
-		TD(CT_COPY_PASTE_CUT_EMACS), KC_Z,    KC_X,        KC_C, KC_V,  KC_B,   TD(CT_LPRN_LBRC_LCBR_LTHAN),
-		_______,    _______,  KC_ESC,    TT(MOVE),    TT(NUMB),
-	                                                                                                KC_ESC,   KC_LGUI,
+    KC_ESC,       KC_1,  ALT_T(KC_2),  CTL_T(KC_3),  LSFT_T(KC_4),  KC_5,                         _______,
+		KC_INS,       KC_Q,         KC_W,         KC_E,          KC_R,  KC_T,     TD(CT_SQTE_DQTE_BQTE_CARET),
+    KC_DELT,      KC_A,  ALT_T(KC_S),  CTL_T(KC_D),  LSFT_T(KC_F),  KC_G,
+		_______,      KC_Z,         KC_X,         KC_C,          KC_V,  KC_B,     TD(CT_LPRN_LBRC_LCBR_LTHAN),
+		_______,   _______,       KC_ESC,     TT(MOVE),      TT(NUMB),
+	                                                                                                _______,  _______,
                                                                                                             _______,
-                                                                                             KC_BSPC,KC_TAB,_______,
+                                                                                         KC_BSPC,  KC_TAB,  _______,
 
-        // right hand
-    _______,                      KC_6,           KC_7,              KC_8,            KC_9,                       KC_0,           KC_PSCR,
-		_______,                      KC_Y,           KC_U,              KC_I,            KC_O,                       KC_P,           _______,
-                                  KC_H,   RSFT_T(KC_J),      RCTL_T(KC_K),    LALT_T(KC_L),  TD(CT_MINUS_UNDSCR_EQUAL),    GUI_T(KC_QUOT),
-    TD(CT_RPRN_RBRC_RCBR_GTHAN),  KC_N,           KC_M,  TD(CT_COMM_SCLN),  TD(CT_DOT_CLN),     TD(CT_SLSH_PIPE_BSLSH),           _______,
-                                         OSM(MOD_RSFT),     OSM(MOD_RCTL),   OSM(MOD_LALT),                    _______,           _______,
-		CG_TOGG,AG_TOGG,
+    // right hand
+    _______,                      KC_6,   RSFT_T(KC_7),      RCTL_T(KC_8),    LALT_T(KC_9),                       KC_0,    KC_PSCR,
+		_______,                      KC_Y,           KC_U,              KC_I,            KC_O,                       KC_P,    _______,
+                                  KC_H,   RSFT_T(KC_J),      RCMD_T(KC_K),    LALT_T(KC_L),  TD(CT_MINUS_UNDSCR_EQUAL),    _______,
+    TD(CT_RPRN_RBRC_RCBR_GTHAN),  KC_N,           KC_M,  TD(CT_COMM_SCLN),  TD(CT_DOT_CLN),     TD(CT_SLSH_PIPE_BSLSH),    _______,
+                                         OSM(MOD_RSFT),     OSM(MOD_RGUI),   OSM(MOD_LALT),                    _______,    _______,
+		_______,  _______,
     _______,
-		_______,KC_ENT, KC_SPC
+		_______,   KC_ENT,  KC_SPC
     ),
 /* Keymap 1: Numbers Layer
  *
