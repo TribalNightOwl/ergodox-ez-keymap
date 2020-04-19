@@ -7,6 +7,6 @@ docker run --rm \
 -v ${QMK_SRC_DIR}:/qmk:rw \
 -v ${MYKEYMAP_DIR}:/keymap:rw \
 -v ${SCRIPTS_DIR}:/scripts:rw \
-buildkeyboard
+tribrhy/buildkeyboard:latest
 
 cp ${QMK_SRC_DIR}/*.hex ${MYKEYMAP_DIR}/../
