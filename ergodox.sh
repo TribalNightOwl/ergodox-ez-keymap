@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 # Execute this script on the machine where src resides
-BRANCH=update-to-qmk_cli
+BRANCH=$(git rev-parse --abbrev-ref HEAD)
 QMK_SRC_DIR=~/git/qmk_firmware
 MYKEYMAP_DIR=~/git/ergodox-ez-keymap/${BRANCH}/keymap/
 SCRIPTS_DIR=~/git/ergodox-ez-keymap/${BRANCH}/scripts
