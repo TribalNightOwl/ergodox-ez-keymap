@@ -1,33 +1,32 @@
 #!/usr/bin/env bash
 
-# Execute this script on the machine where src resides
 BRANCH=$(git rev-parse --abbrev-ref HEAD)
-QMK_SRC_DIR=~/git/qmk_firmware
-MYKEYMAP_DIR=~/git/ergodox-ez-keymap/${BRANCH}/keymap/
-SCRIPTS_DIR=~/git/ergodox-ez-keymap/${BRANCH}/scripts
-IMAGE=tribrhy/buildkeyboard
-TAG="latest"
+BASE_DIR="${HOME}/git"
+QMK_SRC_DIR="${BASE_DIR}/qmk_firmware"
+QMK_REPO="git@github.com:TribalNightOwl/qmk_firmware.git"
+MYKEYMAP_NAME="TribalNightOwl"
+MYKEYMAP_DIR="${BASE_DIR}/ergodox-ez-keymap/${BRANCH}/keymap/${MYKEYMAP_NAME}"
+
+clone(){
+    cd "${BASE_DIR}" || exit
+    rm -rf "${QMK_SRC_DIR}"
+    git clone --recurse-submodules "${QMK_REPO}"
+}
+
+update(){
+    cd "${QMK_SRC_DIR}" || exit
+    rsync -av --delete "${MYKEYMAP_DIR}" "${QMK_SRC_DIR}"/keyboards/ergodox_ez/keymaps
+}
 
 build(){
-    docker run --rm \
-                -v ${QMK_SRC_DIR}:/qmk:rw \
-                -v ${MYKEYMAP_DIR}:/keymap:rw \
-                -v ${SCRIPTS_DIR}:/scripts:rw \
-                ${IMAGE}:${TAG}
-
-    cp ${QMK_SRC_DIR}/*.hex ${MYKEYMAP_DIR}/../
+    update
+    util/docker_build.sh ergodox_ez:"${MYKEYMAP_NAME}"
 }
 
-shell(){
-    docker run --rm -it \
-                -v ${QMK_SRC_DIR}:/qmk:rw \
-                -v ${MYKEYMAP_DIR}:/keymap:rw \
-                -v ${SCRIPTS_DIR}:/scripts:rw \
-                ${IMAGE}:${TAG} bash
+flash(){
+    update
+    util/docker_build.sh ergodox_ez:"${MYKEYMAP_NAME}":flash
 }
 
-build_image(){
-    docker build . -t ${IMAGE}:${TAG}
-}
 
 "$@"
