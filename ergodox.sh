@@ -6,7 +6,7 @@ QMK_SRC_DIR=~/git/qmk_firmware
 MYKEYMAP_DIR=~/git/ergodox-ez-keymap/${BRANCH}/keymap/
 SCRIPTS_DIR=~/git/ergodox-ez-keymap/${BRANCH}/scripts
 IMAGE=tribrhy/buildkeyboard
-TAG="test"
+TAG="latest"
 
 build(){
     docker run --rm \
