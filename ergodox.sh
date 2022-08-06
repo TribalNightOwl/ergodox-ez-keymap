@@ -30,12 +30,12 @@ update(){
 build(){
     update
     util/docker_build.sh ergodox_ez:"${MYKEYMAP_NAME}"
+    cp "${QMK_SRC_DIR}/.build/ergodox_ez_${MYKEYMAP_NAME}.hex" "${MYKEYMAP_DIR}"
 }
 
 flash(){
     update
     util/docker_build.sh ergodox_ez:"${MYKEYMAP_NAME}":flash
 }
-
 
 "$@"
